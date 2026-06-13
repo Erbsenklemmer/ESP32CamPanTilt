@@ -194,6 +194,8 @@ static const char PROGMEM INDEX_HTML[] = R"rawliteral(
         <td align="center"><button class="button" onmousedown="toggleCheckbox('left');" ontouchstart="toggleCheckbox('left');">Left</button></td><td align="center"></td>
         <td align="center"><button class="button" onmousedown="toggleCheckbox('right');" ontouchstart="toggleCheckbox('right');">Right</button></td></tr>
       <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('down');" ontouchstart="toggleCheckbox('down');">Down</button></td></tr>
+      <tr/>
+      <tr align="center"><td colspan="3"><h3>Light</h3></td></tr>
       <tr>
         <td align="center"><button class="button" style="background-color: #444400;" onmousedown="toggleCheckbox('off');" ontouchstart="toggleCheckbox('off');">Off</button></td>
         <td align="center"><button class="button" style="background-color: #888800; color: black;" onmousedown="toggleCheckbox('semi');" ontouchstart="toggleCheckbox('semi');">Half</button></td>
@@ -512,11 +514,21 @@ void setup()
   analogWrite(FLASH_LED_PIN, FLASH_LED_Brightness);
 
   // Wi-Fi connection
+  int tries = 0;
+  const int maxTries = 20;
   WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED)
+  while (WiFi.status() != WL_CONNECTED && tries < maxTries)
   {
     delay(500);
     Serial.print(".");
+    tries++;
+  }
+
+  if (tries >= maxTries)
+  {
+    Serial.println("");
+    Serial.println("WiFi connection failed");
+    return;
   }
   Serial.println("");
   Serial.println("WiFi connected");
