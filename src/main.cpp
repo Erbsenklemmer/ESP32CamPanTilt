@@ -195,9 +195,9 @@ static const char PROGMEM INDEX_HTML[] = R"rawliteral(
         <td align="center"><button class="button" onmousedown="toggleCheckbox('right');" ontouchstart="toggleCheckbox('right');">Right</button></td></tr>
       <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('down');" ontouchstart="toggleCheckbox('down');">Down</button></td></tr>
       <tr>
-        <td align="center"><button class="button" background-color="#444400" onmousedown="toggleCheckbox('off');" ontouchstart="toggleCheckbox('off');">Off</button></td>
-        <td align="center"><button class="button" background-color="#888800" onmousedown="toggleCheckbox('semi');" ontouchstart="toggleCheckbox('semi');">Half</button></td>
-        <td align="center"><button class="button" background-color="#FFFF00" onmousedown="toggleCheckbox('full');" ontouchstart="toggleCheckbox('full');">Full</button></td>
+        <td align="center"><button class="button" style="background-color: #444400;" onmousedown="toggleCheckbox('off');" ontouchstart="toggleCheckbox('off');">Off</button></td>
+        <td align="center"><button class="button" style="background-color: #888800; color: black;" onmousedown="toggleCheckbox('semi');" ontouchstart="toggleCheckbox('semi');">Half</button></td>
+        <td align="center"><button class="button" style="background-color: #FFFF00; color: black;" onmousedown="toggleCheckbox('full');" ontouchstart="toggleCheckbox('full');">Full</button></td>
       </tr>                   
     </table>
    <script>
